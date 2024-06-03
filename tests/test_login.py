@@ -4,7 +4,7 @@ from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.password_page_object import PasswordPage
 from pages.login_page_object import LoginPage
-from pages.home_page import HomePage
+from pages.home_page_object import HomePage
 from util.Sample_User import SampleUser
 from dotenv import load_dotenv
 
@@ -25,5 +25,4 @@ def test_authorization(driver):
     password_page_object.click_submit()
     home_page = HomePage(driver)
     home_page.is_presented()
-
 
