@@ -10,6 +10,8 @@ from pages.sender_individuals_page_object import SenderIndividualsSearchSubpageO
 from pages.recipient_individuals_page_object import RecipientIndividualsPageIndividuals
 from pages.recipient_individuals_page_object import RecipientIndividualsSearchSubpageObject
 from pages.cargo_parameters_page_object import CargoParametrsPage
+from pages.checkout_page_object import CheckoutPage
+from pages.order_details_page_object import OrderDetailsPage
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -75,4 +77,12 @@ def test_create_order(driver):
     recipient_individuals_page_object.click_save_button()
 
     participants_page_object.click_next_button()
+
+    checkout_page_object = CheckoutPage(driver)
+    assert checkout_page_object.is_presented()
+    checkout_page_object.click_create_order_button()
+
+    order_details_page_object = OrderDetailsPage(driver)
+
+
     
