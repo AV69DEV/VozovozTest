@@ -26,3 +26,6 @@ class BasePage:
 
     def scroll(self):
         var = self.driver.swipe
+
+    def press_back(self):
+        self.driver.back()

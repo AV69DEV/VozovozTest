@@ -29,7 +29,6 @@ class RecipientIndividualsSearchSubpageObject(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.name_input = self.find_element_by_xpath('//*[contains(@hint, "Имя/телефон или др.")]')
-        #RecipientPageIndividuals.name_input.get_attribute("text"))
 
     def send_name(self, name):
         self.name_input.send_keys(name)

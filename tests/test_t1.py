@@ -22,7 +22,7 @@ def test_create_order(driver):
     phone = "79157292091"
     formated_phone = "+7 (915) 729-20-91"
     home_page_object = HomePage(driver)
-    home_page_object.click_new_order()
+    home_page_object.click_plus_button()
 
     order_submission_page_object = OrderSubmissionPage(driver)
     assert order_submission_page_object.from_.get_attribute("content-desc") == ("Откуда\nТерминал: Минск, Инженерная "
@@ -59,7 +59,7 @@ def test_create_order(driver):
     sender_individuals_search_subpage_object.get_valid_counterparty(name, phone).click()
     assert sender_individuals_page_object.name_input.text == f"{name} "
     assert sender_individuals_page_object.basic_phone_input.text == f"{formated_phone}"
-    sender_individuals_page_object.mail_title.click()    ####Клик по элементу чтобы скрыть клавиатуру
+    sender_individuals_page_object.mail_title.click()  ####Клик по элементу чтобы скрыть клавиатуру
     sender_individuals_page_object.click_save_button()
 
     participants_page_object.click_recipient_button()
@@ -73,7 +73,7 @@ def test_create_order(driver):
     recipient_individuals_search_subpage_object.get_valid_counterparty(name, phone).click()
     assert recipient_individuals_page_object.name_input.text == f"{name} "
     assert recipient_individuals_page_object.basic_phone_input.text == f"{formated_phone}"
-    recipient_individuals_page_object.mail_title.click()    ####Клик по элементу чтобы скрыть клавиатуру
+    recipient_individuals_page_object.mail_title.click()  ####Клик по элементу чтобы скрыть клавиатуру
     recipient_individuals_page_object.click_save_button()
 
     participants_page_object.click_next_button()
@@ -83,6 +83,3 @@ def test_create_order(driver):
     checkout_page_object.click_create_order_button()
 
     order_details_page_object = OrderDetailsPage(driver)
-
-
-    
