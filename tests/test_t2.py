@@ -1,22 +1,11 @@
-import os
-from appium.webdriver.common.appiumby import AppiumBy
-from util.Sample_User import SampleUser
 from pages.home_page_object import HomePage
 from pages.order_submission_page_object import OrderSubmissionPage
-from pages.from_page_object import FromPage
-from pages.from_page_object import SearchByCityModal
-from pages.from_page_object import AddressSubPage
-from pages.from_page_object import SearchByStreetModal
-from pages.from_page_object import MapSubPage
-from pages.arriving_page_object import ArrivingPage
-from pages.participants_page_object import ParticipantsPage
-from pages.sender_individuals_page_object import SenderPageIndividuals
-from pages.sender_individuals_page_object import SenderIndividualsSearchSubpageObject
-from pages.recipient_individuals_page_object import RecipientIndividualsPageIndividuals
-from pages.recipient_individuals_page_object import RecipientIndividualsSearchSubpageObject
-from pages.cargo_parameters_page_object import CargoParametrsPage
-from pages.checkout_page_object import CheckoutPage
-from pages.order_details_page_object import OrderDetailsPage
+from pages.order_submission_from_page_object import FromPage
+from pages.order_submission_from_page_object import SearchByCityModal
+from pages.order_submission_from_page_object import AddressSubPage
+from pages.order_submission_from_page_object import SearchByStreetModal
+from pages.order_submission_from_page_object import MapSubPage
+
 from dotenv import load_dotenv
 
 load_dotenv()

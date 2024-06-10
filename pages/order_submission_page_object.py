@@ -1,5 +1,4 @@
 from appium.webdriver.webdriver import WebDriver
-from appium.webdriver.common import appiumby
 from pages.base_page import BasePage
 
 

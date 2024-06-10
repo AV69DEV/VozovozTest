@@ -29,3 +29,8 @@ class BasePage:
 
     def press_back(self):
         self.driver.back()
+
+    def tap_x_y(self, x, y):
+        self.driver.tap([(x, y)])
+
+
