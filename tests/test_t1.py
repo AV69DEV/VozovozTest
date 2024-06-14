@@ -1,4 +1,6 @@
 import os
+
+import pytest
 from appium.webdriver.common.appiumby import AppiumBy
 from util.Sample_User import SampleUser
 from pages.home_page_object import HomePage
@@ -17,6 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+@pytest.mark.smoke
 def test_create_order(driver):
     name = "Андрей Волков"
     phone = "79157292091"
@@ -83,3 +86,4 @@ def test_create_order(driver):
     checkout_page_object.click_create_order_button()
 
     order_details_page_object = OrderDetailsPage(driver)
+    order_details_page_object.press_back()

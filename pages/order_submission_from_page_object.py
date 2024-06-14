@@ -1,7 +1,7 @@
 from pages.base_page import BasePage
 
 
-class FromPage(BasePage):
+class OrderSubmissionFromPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.search_by_city_button = self.find_element_by_xpath('//*[contains(@content-desc,"Поиск по городу")]')
@@ -63,7 +63,6 @@ class MapSubPage(BasePage):
         self.find_element_by_xpath('//android.widget.RelativeLayout/android.view.View')
 
 
-
 class SearchByStreetModal(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -81,3 +80,6 @@ class SearchByStreetModal(BasePage):
             print(ent.get_attribute("content-desc"))
             if ent.get_attribute("content-desc").__contains__(f"{street}"):
                 return ent
+
+    def clik_select_address_manually(self):
+        self.find_element_by_xpath('//*[contains(@content-desc, "Внимание!")]').click()

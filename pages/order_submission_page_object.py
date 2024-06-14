@@ -5,10 +5,10 @@ from pages.base_page import BasePage
 class OrderSubmissionPage(BasePage):
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
-        self.next_button = self.find_element_by_xpath('//android.view.View[@content-desc="Далее"]', time=20)
-        self.from_ = self.find_element_by_xpath('//*[contains(@content-desc,"Откуда")]', time=20)
-        self.date_ = self.find_element_by_xpath('//*[contains(@content-desc,"Дата")]', time=20)
-        self.time_ = self.find_element_by_xpath('//*[contains(@content-desc,"Время")]', time=20)
+        self.next_button = self.find_element_by_xpath('//android.view.View[@content-desc="Далее"]', timeout=20)
+        self.from_ = self.find_element_by_xpath('//*[contains(@content-desc,"Откуда")]', timeout=20)
+        self.date_ = self.find_element_by_xpath('//*[contains(@content-desc,"Дата")]', timeout=20)
+        self.time_ = self.find_element_by_xpath('//*[contains(@content-desc,"Время")]', timeout=20)
         self.loading_work_ = None
         self.comment_to_the_driver_ = None
         self.driving_directions_ = None
