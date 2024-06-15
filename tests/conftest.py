@@ -9,6 +9,7 @@ from appium.options.android import UiAutomator2Options
 appium_server_url = 'http://localhost:4723'
 emulator_path = '/Users/osnovnaa/library/Android/sdk/emulator/emulator'
 avd_name = 'Samsung_Galaxy_a12_API_33'
+
 capabilities = dict(
     platformName='Android',
     automationName='uiautomator2',

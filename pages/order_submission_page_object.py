@@ -27,7 +27,7 @@ class OrderSubmissionPage(BasePage):
 
     def initialize_additional_fields(self):
         self.loading_work_ = self.find_element_by_xpath(
-            '//android.widget.ImageView[@content-desc="Погрузочные работы"]')
+            '//*[contains(@content-desc,"Погрузочные работы")]')
         self.comment_to_the_driver_ = self.find_element_by_xpath(
             '//android.widget.ImageView[@content-desc="Комментарий водителю"]')
         self.driving_directions_ = self.find_element_by_xpath(

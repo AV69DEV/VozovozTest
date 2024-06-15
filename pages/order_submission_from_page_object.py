@@ -15,6 +15,7 @@ class OrderSubmissionFromPage(BasePage):
         self.address_button.click()
 
     def click_save_button(self):
+        self.find_element_by_xpath('//android.view.View[@content-desc="Сохранить"]')
         self.save_button.click()
 
     def check_address(self, address: str):
