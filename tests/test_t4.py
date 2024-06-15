@@ -79,3 +79,4 @@ def test_time_in_order_submission_page(driver):
 
     assert order_submission_page_object.time_.get_attribute(
         'content-desc') == f"Время\nс {SETED_FROM_TIME} до {SETED_TO_TIME}"
+
