@@ -4,7 +4,7 @@ from pages.order_submission_page_object import OrderSubmissionPage
 from pages.order_submission_from_page_object import AddressSubPage
 from pages.order_submission_from_page_object import SearchByStreetModal
 from pages.order_submission_from_page_object import OrderSubmissionFromPage
-from pages.order_submission_loading_work_page_object import LoadingWorkPage
+from pages.order_submission_loading_work_modal import LoadingWorkModal
 
 
 @pytest.mark.smoke
@@ -33,7 +33,7 @@ def test_order_submission_loading_works(driver):
     order_submission_page_object.initialize_additional_fields()
     order_submission_page_object.loading_work_.click()
 
-    order_submission_loading_work_page_object = LoadingWorkPage(driver)
+    order_submission_loading_work_page_object = LoadingWorkModal(driver)
     order_submission_loading_work_page_object.send_floor(floors_quantity)
 
     if order_submission_loading_work_page_object.service_lift.get_attribute('checked') == 'false':

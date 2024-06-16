@@ -10,7 +10,7 @@ class OrderSubmissionPage(BasePage):
         self.date_ = self.find_element_by_xpath('//*[contains(@content-desc,"Дата")]', timeout=20)
         self.time_ = self.find_element_by_xpath('//*[contains(@content-desc,"Время")]', timeout=20)
         self.loading_work_ = None
-        self.comment_to_the_driver_ = None
+        self.comment_to_driver_ = None
         self.driving_directions_ = None
         self.driver_data_ = None
         self.documents_at_the_address_ = None
@@ -25,11 +25,14 @@ class OrderSubmissionPage(BasePage):
     def click_from_(self):
         self.from_.click()
 
+    def click_comment_to_driver_(self):
+        self.comment_to_driver_.click()
+
     def initialize_additional_fields(self):
         self.loading_work_ = self.find_element_by_xpath(
             '//*[contains(@content-desc,"Погрузочные работы")]')
-        self.comment_to_the_driver_ = self.find_element_by_xpath(
-            '//android.widget.ImageView[@content-desc="Комментарий водителю"]')
+        self.comment_to_driver_ = self.find_element_by_xpath(
+            '//*[contains(@content-desc,"Комментарий водителю")]')
         self.driving_directions_ = self.find_element_by_xpath(
             '//android.widget.ImageView[@content-desc="Схема проезда"]')
         self.driver_data_ = self.find_element_by_xpath('//android.widget.ImageView[@content-desc="Данные водителя"]')
