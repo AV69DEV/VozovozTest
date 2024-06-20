@@ -28,13 +28,16 @@ class OrderSubmissionPage(BasePage):
     def click_comment_to_driver_(self):
         self.comment_to_driver_.click()
 
+    def click_diving_directions_(self):
+        self.driving_directions_.click()
+
     def initialize_additional_fields(self):
         self.loading_work_ = self.find_element_by_xpath(
             '//*[contains(@content-desc,"Погрузочные работы")]')
         self.comment_to_driver_ = self.find_element_by_xpath(
             '//*[contains(@content-desc,"Комментарий водителю")]')
         self.driving_directions_ = self.find_element_by_xpath(
-            '//android.widget.ImageView[@content-desc="Схема проезда"]')
+            '//*[contains(@content-desc,"Схема проезда")]')
         self.driver_data_ = self.find_element_by_xpath('//android.widget.ImageView[@content-desc="Данные водителя"]')
         self.documents_at_the_address_ = self.find_element_by_xpath(
             '//android.widget.ImageView[@content-desc="Документы по адресу"]')
