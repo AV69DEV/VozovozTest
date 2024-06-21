@@ -49,6 +49,8 @@ class AddressSubPage(BasePage):
         self.map_button = self.find_element_by_uiautomator('new UiSelector().className("android.widget.ImageView")')
 
     def click_search_by_street_button(self):
+        self.search_by_street_button = self.find_element_by_xpath(
+            '//android.view.View[@content-desc="Поиск по названию улицы"]')
         self.search_by_street_button.click()
 
     def click_map_button(self):
