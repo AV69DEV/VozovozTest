@@ -37,6 +37,9 @@ class OrderSubmissionPage(BasePage):
     def click_documents_at_the_address(self):
         self.documents_at_the_address_.click()
 
+    def click_special_requirements_and_transport_(self):
+        self.special_requirements_and_transport_.click()
+
     def initialize_additional_fields(self):
         self.loading_work_ = self.find_element_by_xpath(
             '//*[contains(@content-desc,"Погрузочные работы")]')
@@ -48,4 +51,4 @@ class OrderSubmissionPage(BasePage):
         self.documents_at_the_address_ = self.find_element_by_xpath(
             '//*[contains(@content-desc,"Документы по адресу")]')
         self.special_requirements_and_transport_ = self.find_element_by_xpath(
-            '//android.widget.ImageView[@content-desc="Спец. требования и транспорт"]')
+            '//*[contains(@content-desc,"Спец. требования и транспорт")]')
