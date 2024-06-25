@@ -1,7 +1,6 @@
 import os
 import subprocess
 import time
-
 import pytest
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
@@ -30,4 +29,4 @@ def driver():
     yield driver
     if driver:
         driver.quit()
-    #os.system('adb devices | grep emulator | cut -f1 | while read line; do adb -s $line emu kill; done')
+    os.system('adb devices | grep emulator | cut -f1 | while read line; do adb -s $line emu kill; done')
