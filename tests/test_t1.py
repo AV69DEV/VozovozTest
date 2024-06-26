@@ -42,11 +42,8 @@ def test_create_order(driver):
 
     cargo_parametrs_page_object = CargoParametrsPage(driver)
     driver.swipe(150, 650, 150, 100, 700)
-    cargo_parametrs_page_object.set_insurance_param()
-    cargo_parametrs_page_object.set_link_transportation_number_param()
-    cargo_parametrs_page_object.set_scan_of_delivery_note_param()
-    cargo_parametrs_page_object.set_disassembly_of_packaging_upon_delivery_to_the_address_param()
-    cargo_parametrs_page_object.set_return_accompanying_documents_param()
+    cargo_parametrs_page_object.set_initially_hidden_parameters()
+
     cargo_parametrs_page_object.click_next_button()
 
     participants_page_object = ParticipantsPage(driver)

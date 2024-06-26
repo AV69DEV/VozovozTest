@@ -1,6 +1,4 @@
 import os
-from appium import webdriver
-from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.password_page_object import PasswordPage
 from pages.login_page_object import LoginPage
