@@ -41,7 +41,7 @@ def test_create_order(driver):
     arriving_page_object.click_next_button()
 
     cargo_parametrs_page_object = CargoParametrsPage(driver)
-    driver.swipe(150, 650, 150, 100, 700)
+    driver.swipe(150, 700, 150, 100, 700)
     cargo_parametrs_page_object.set_initially_hidden_parameters()
 
     cargo_parametrs_page_object.click_next_button()
@@ -56,6 +56,8 @@ def test_create_order(driver):
     sender_individuals_search_subpage_object.send_name(name)
     assert sender_individuals_search_subpage_object.check_for_valid_counterparty(name, phone)
     sender_individuals_search_subpage_object.get_valid_counterparty(name, phone).click()
+
+    sender_individuals_page_object.set_name_input()
     assert sender_individuals_page_object.name_input.text == f"{name} "
     assert sender_individuals_page_object.basic_phone_input.text == f"{formated_phone}"
     sender_individuals_page_object.mail_title.click()  ####Клик по элементу чтобы скрыть клавиатуру
@@ -70,6 +72,8 @@ def test_create_order(driver):
     recipient_individuals_search_subpage_object.send_name(name)
     assert recipient_individuals_search_subpage_object.check_for_valid_counterparty(name, phone)
     recipient_individuals_search_subpage_object.get_valid_counterparty(name, phone).click()
+
+    recipient_individuals_page_object.set_name_input()
     assert recipient_individuals_page_object.name_input.text == f"{name} "
     assert recipient_individuals_page_object.basic_phone_input.text == f"{formated_phone}"
     recipient_individuals_page_object.mail_title.click()  ####Клик по элементу чтобы скрыть клавиатуру

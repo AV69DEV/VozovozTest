@@ -1,12 +1,7 @@
 import sys
-
+from util.Exceptions import Exceptions
 from pages.base_page import BasePage
 from appium.webdriver.errorhandler import sel_exceptions
-
-
-class Exceptions(Exception):
-    def __init__(self):
-        super().__init__()
 
 
 class OrderSubmissionDrivingDirectionsModal(BasePage):

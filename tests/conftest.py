@@ -20,6 +20,12 @@ def start_avd(emulator, avd):
     os.system('adb wait-for-device')
 
 
+"""def set_env(var_name: str, path):
+    if os.getenv(var_name) is None:
+        os.putenv(__name=var_name, __value=path)
+    print(f'Enviroment varieble {var_name}={os.getenv(var_name)}')"""
+
+
 @pytest.fixture()
 def driver():
     start_avd(emulator_path, avd_name)

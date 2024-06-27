@@ -1,5 +1,3 @@
-from appium.webdriver.webdriver import WebDriver
-from appium.webdriver.common import appiumby
 from pages.base_page import BasePage
 
 
@@ -22,7 +20,11 @@ class SenderPageIndividuals(BasePage):
         self.name_search_button.click()
 
     def click_save_button(self):
+        self.save_button = self.find_element_by_xpath('//android.view.View[@content-desc="Сохранить"]')
         self.save_button.click()
+
+    def set_name_input(self):
+        self.name_input = self.find_element_by_xpath('//*[contains(@hint,"ФИО*")]')
 
 
 class SenderIndividualsSearchSubpageObject(BasePage):

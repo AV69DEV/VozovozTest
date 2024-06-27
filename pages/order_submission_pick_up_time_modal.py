@@ -1,6 +1,4 @@
-import time
 from pages.base_page import BasePage
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class OrderSubmissionTimeModal(BasePage):

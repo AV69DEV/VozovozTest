@@ -1,5 +1,3 @@
-from appium.webdriver.webdriver import WebDriver
-from appium.webdriver.common import appiumby
 from pages.base_page import BasePage
 
 
@@ -23,6 +21,9 @@ class RecipientIndividualsPageIndividuals(BasePage):
 
     def click_save_button(self):
         self.save_button.click()
+
+    def set_name_input(self):
+        self.name_input = self.find_element_by_xpath('//*[contains(@hint,"ФИО*")]')
 
 
 class RecipientIndividualsSearchSubpageObject(BasePage):

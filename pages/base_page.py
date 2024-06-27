@@ -1,10 +1,30 @@
+import locale
 import time
+from datetime import date
+
 import appium.webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from appium.webdriver.common import appiumby
 from selenium.common.exceptions import StaleElementReferenceException
+
+
+def get_weekday_string(value: int):
+    if value == 0:
+        return 'пн'
+    elif value == 1:
+        return 'вт'
+    elif value == 2:
+        return 'ср'
+    elif value == 3:
+        return 'чт'
+    elif value == 4:
+        return 'пт'
+    elif value == 5:
+        return 'сб'
+    elif value == 6:
+        return 'вс'
 
 
 class BasePage:
@@ -40,3 +60,11 @@ class BasePage:
 
     def sleep(self, duration):
         time.sleep(duration)
+
+    def get_date_string(self, date_):
+        #date_elements = self.find_element_by_xpath(f'//android.view.View[@content-desc="{date}"]').click()
+
+        locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
+        formatted_date = f'{get_weekday_string(date_.weekday())}, {date_.strftime("%d %B %Y")}'
+        print(formatted_date)
+        return formatted_date
