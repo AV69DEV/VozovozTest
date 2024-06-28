@@ -62,8 +62,6 @@ class BasePage:
         time.sleep(duration)
 
     def get_date_string(self, date_):
-        #date_elements = self.find_element_by_xpath(f'//android.view.View[@content-desc="{date}"]').click()
-
         locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
         formatted_date = f'{get_weekday_string(date_.weekday())}, {date_.strftime("%d %B %Y")}'
         print(formatted_date)

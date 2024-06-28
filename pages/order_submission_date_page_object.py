@@ -5,24 +5,6 @@ from util.Exceptions import Exceptions
 from pages.base_page import BasePage
 
 
-def get_weekday_string(value: int):
-
-    if value == 0:
-        return 'пн'
-    elif value == 1:
-        return 'вт'
-    elif value == 2:
-        return 'ср'
-    elif value == 3:
-        return 'чт'
-    elif value == 4:
-        return 'пт'
-    elif value == 5:
-        return 'сб'
-    elif value == 6:
-        return 'вс'
-
-
 class OrderSubmissionDatePage(BasePage):
 
     def __init__(self, driver):
