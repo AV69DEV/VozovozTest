@@ -34,6 +34,8 @@ def test_order_submission_loading_works(driver):
     order_submission_page_object.loading_work_.click()
 
     order_submission_loading_work_page_object = LoadingWorkModal(driver)
+    order_submission_loading_work_page_object.click_loading_works_switch()
+    order_submission_loading_work_page_object.set_floor_input()
     order_submission_loading_work_page_object.send_floor(floors_quantity)
 
     if order_submission_loading_work_page_object.service_lift.get_attribute('checked') == 'false':
@@ -49,4 +51,5 @@ def test_order_submission_loading_works(driver):
 
     order_submission_loading_work_page_object.click_confirm_button()
     order_submission_page_object.initialize_additional_fields()
-    assert order_submission_page_object.loading_work_.get_attribute('content-desc') == f'Погрузочные работы\n{floors_quantity}'
+    assert (order_submission_page_object.loading_work_.get_attribute('content-desc') ==
+            f'Погрузочные работы\nэтаж {floors_quantity}')
