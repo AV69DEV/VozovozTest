@@ -9,8 +9,6 @@ load_dotenv()
 
 @pytest.mark.smoke
 def test_date_in_order_submission_page(driver):
-    test_date_ = "чт, 29 июня 2024"
-    expected_order_submission_date = 'Дата\n29.06.2024'
 
     home_page_object = HomePage(driver)
     home_page_object.click_plus_button()

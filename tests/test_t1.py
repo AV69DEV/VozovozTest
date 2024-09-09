@@ -27,14 +27,13 @@ def test_create_order(driver):
     home_page_object.click_plus_button()
 
     order_submission_page_object = OrderSubmissionPage(driver)
-    assert order_submission_page_object.from_.get_attribute("content-desc") == ("Откуда\nТерминал: Минск, Инженерная "
-                                                                                "ул., д.4, корп. 2")
+    assert order_submission_page_object.from_.get_attribute("content-desc") == ("Откуда\nТерминал: Минск, Промышленный пер., д .12")
     ##assert order_submission_page_object.date_.get_attribute("content-desc") == "Дата\n22.05.2024"
     ##assert order_submission_page_object.time_.get_attribute("content-desc") == "Время\nдо 18:00"
     order_submission_page_object.click_next_button()
 
     arriving_page_object = ArrivingPage(driver)
-    assert arriving_page_object.direction_.get_attribute("content-desc") == ("Куда\nТерминал: Санкт-Петербург, 2-ой "
+    assert arriving_page_object.where_.get_attribute("content-desc") == ("Куда\nТерминал: Санкт-Петербург, 2-ой "
                                                                              "Бадаевский проезд, 10")
     ##assert arriving_page_object.date_.get_attribute("content-desc") == "Дата\n26.05.2024"
     ##assert arriving_page_object.time_.get_attribute("content-desc") == "Время\nc 14:00"

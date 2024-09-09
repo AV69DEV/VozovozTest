@@ -1,17 +1,22 @@
 import pytest
+from pages.arriving_page_object import ArrivingPage
 from pages.home_page_object import HomePage
+from pages.order_submission_driving_directions_modal import FileSelectionOptionModal, \
+    OrderSubmissionDrivingDirectionsModal
 from pages.order_submission_page_object import OrderSubmissionPage
-from pages.order_submission_from_page_object import AddressSubPage
-from pages.order_submission_from_page_object import SearchByStreetModal
-from pages.order_submission_from_page_object import OrderSubmissionFromPage
-from pages.order_submission_driving_directions_modal import OrderSubmissionDrivingDirectionsModal
-from pages.order_submission_driving_directions_modal import FileSelectionOptionModal
+from pages.arriving_where_page_object import AddressSubPage, ArrivingWherePage
+from pages.arriving_where_page_object import SearchByStreetModal
+from dotenv import load_dotenv
+
 from pages.system.android_select_file_modal import AndroidSelectFileModal
+
+load_dotenv()
 
 
 @pytest.mark.smoke
-def test_order_submission_driver_directions(driver):
+def test_comment_to_driver_in_arriving_page(driver):
     address_to_search = "пр-т. Победителей 1/2, Минск, Минская область"
+
     test_file_name1 = 'Cat03.jpg'
     test_file_name2 = 'PNG.png'
 
@@ -19,11 +24,13 @@ def test_order_submission_driver_directions(driver):
     home_page_object.click_plus_button()
 
     order_submission_page_object = OrderSubmissionPage(driver)
-    order_submission_page_object.from_.click()
+    order_submission_page_object.click_next_button()
 
-    order_submission_from_page_object = OrderSubmissionFromPage(driver)
-    order_submission_from_page_object.click_address_button()
+    arriving_page_obj = ArrivingPage(driver)
+    arriving_page_obj.click_where_button()
 
+    arriving_where_page_obj = ArrivingWherePage(driver)
+    arriving_where_page_obj.click_address_button()
     address_sub_page_object = AddressSubPage(driver)
     address_sub_page_object.click_search_by_street_button()
 
@@ -31,10 +38,10 @@ def test_order_submission_driver_directions(driver):
     search_by_street_modal.send_street(address_to_search)
     search_by_street_modal.clik_select_address_manually()
 
-    order_submission_from_page_object.click_save_button()
+    arriving_where_page_obj.click_save_button()
 
-    order_submission_page_object.initialize_additional_fields()
-    order_submission_page_object.click_diving_directions_()
+    arriving_page_obj.initialize_additional_fields()
+    arriving_page_obj.click_diving_directions_()
 
     order_submission_driving_directions_modal = OrderSubmissionDrivingDirectionsModal(driver)
     order_submission_driving_directions_modal.click_load_file_button()
@@ -84,21 +91,10 @@ def test_order_submission_driver_directions(driver):
     order_submission_driving_directions_modal.press_back()
 
     order_submission_driving_directions_modal.click_save_button()
-    order_submission_page_object.initialize_additional_fields()
+    arriving_page_obj.initialize_additional_fields()
 
-    assert order_submission_page_object.driving_directions_.get_attribute('content-desc') == f'Схема проезда\n{test_file_name1}'
-
-
-
-
-
-
-
-
-
-
-
-
+    assert arriving_page_obj.driving_directions_.get_attribute(
+        'content-desc') == f'Схема проезда\n{test_file_name1}'
 
 
 

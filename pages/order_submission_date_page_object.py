@@ -11,8 +11,7 @@ class OrderSubmissionDatePage(BasePage):
         super().__init__(driver)
         self.navigation_bar_background = self.find_element_by_xpath(
             '//android.view.View[@resource-id="android:id/navigationBarBackground"]')
-        self.forward_button = self.find_element_by_xpath('//android.widget.Button[@content-desc="Forward"]')
-        ###MyTODO Change "hard code" date, to aglgoritm witch will select the nearest possible date.
+        self.forward_button = self.find_element_by_xpath('//android.widget.Button[@content-desc="Forward"]', timeout=10)
 
     def click_forward_button(self):
         self.forward_button.click()
@@ -44,6 +43,11 @@ class OrderSubmissionDatePage(BasePage):
                     f'//*[contains(@content-desc, "{self.get_date_string(current_date)}")]')
 
                 if current_date_element.get_attribute('content-desc').__contains__('Disabled date'):
+                    current_date = current_date + timedelta(days=1)
+                    i += 1
+                    continue
+
+                if current_date == today_date:
                     current_date = current_date + timedelta(days=1)
                     i += 1
                     continue

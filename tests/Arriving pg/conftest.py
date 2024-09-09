@@ -31,7 +31,7 @@ def start_avd(emulator, avd, adb_path):
 @pytest.fixture()
 def driver():
     start_avd(emulator_path, avd_name, adb_path_)
-    time.sleep(3)
+    time.sleep(5)
     driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
     driver.update_settings(settings={'enforceXPath1': True})
     yield driver

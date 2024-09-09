@@ -1,3 +1,4 @@
+import datetime
 import locale
 import time
 from datetime import date
@@ -62,7 +63,10 @@ class BasePage:
         time.sleep(duration)
 
     def get_date_string(self, date_):
-        locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
-        formatted_date = f'{get_weekday_string(date_.weekday())}, {date_.strftime("%d %B %Y")}'
+        locale.setlocale(locale.LC_TIME, 'ru_RU')
+        Months_in_the_correct_case = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+        current_month = datetime.date.today().month
+        month_string = Months_in_the_correct_case[current_month - 1]
+        formatted_date = f'{get_weekday_string(date_.weekday())}, {date_.strftime(f"%d {month_string} %Y")}'
         print(formatted_date)
         return formatted_date
